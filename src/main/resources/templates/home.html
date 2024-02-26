@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prenotare</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+        .header {
+            position: static;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+        }
+        .navbar {
+            background-color: #333;
+        }
+        .navbar-brand, .navbar-nav .nav-link {
+            color: #fff;
+        }
+        .section {
+            padding: 20px;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <img th:src="@{/images/top.jpg}"/>
+    </header>
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#">Inicio</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/reservas">Reservas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contacto">Contacto</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<section id="inicio" class="section">
+    <div class="container">
+        <h2>¡Bienvenido a Prenotare!</h2>
+        <p>En Prenotare, te ofrecemos una experiencia única para descubrir y reservar los mejores restaurantes en tu área. Ya sea que estés buscando una cena romántica, una comida rápida entre amigos o una experiencia gastronómica única, ¡nosotros te tenemos cubierto!
+Nuestro fácil sistema de reservas te permite explorar una amplia variedad de restaurantes y asegurar tu mesa en cuestión de segundos. ¿Tienes alguna preferencia dietética o necesidades especiales? No te preocupes, ¡tenemos opciones para todos los gustos y requisitos!
+Con Prenotare, planificar tu próxima salida a comer nunca ha sido tan fácil y conveniente. ¿Qué estás esperando? ¡Empieza a explorar y reserva tu mesa hoy mismo!</p>
+    </div>
+</section>
+<section id="reservas" class="section">
+    <div class="container">
+        <h2>Reservas</h2>
+        <p>Para hacer una reserva y empezar este viaje gastronomico haz click aqui.</p>
+        <spa>Saludos jeje</spa>
+    </div>
+</section>
+<section id="contacto" class="section bg-light">
+    <div class="container">
+        <h2>Contacto</h2>
+        <p>Puedes contactarnos al (021) 123-456 o enviarnos un correo electrónico a contacto@prenotare.com.py.</p>
+        <p>Si quieres que agreguemos tu restaurante a nuestra lista de locales, llamanos al (021) 654-321 o envianos un correo electrónico al restaurantes@prenotare.com.py</p>
+    </div>
+</section>
+<footer>
+    <div class="container">
+        <p>&copy; 2024 Prenotare. Todos los derechos reservados.</p>
+    </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
