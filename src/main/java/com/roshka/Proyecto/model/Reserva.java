@@ -8,14 +8,13 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.sql.Time;
-import java.time.LocalTime;
 import java.util.Date;
 
 @Data
 @Getter
 @Setter
 @Entity
-public class Reservation {
+public class Reserva {
     @Id
     @GeneratedValue
     private Integer id;

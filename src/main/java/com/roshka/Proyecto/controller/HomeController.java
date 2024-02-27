@@ -20,13 +20,11 @@ public class HomeController {
 
     @GetMapping("/")
     public String home(Model model) {
-        model.addAttribute("menuItem", "Rocoto relleno");
         return "home";
     }
 
     @GetMapping("/reservas")
     public String getReservas() {
-
         return "reservas";
     }
     @GetMapping("/reservas-raw")
