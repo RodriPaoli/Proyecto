@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.sql.Time;
+import java.util.Date;
+
 @Controller
 public class HomeController {
     class Reserva {
@@ -26,15 +29,6 @@ public class HomeController {
 
         return "reservas";
     }
-    @GetMapping("/mapa")
-    public String mostrarMapa(Model model) {
-        double latitud = -25.282198698800023;
-        double longitud = -57.63615149084265;
-        model.addAttribute("latitud", latitud);
-        model.addAttribute("longitud", longitud);
-        return "mapa";
-    }
-
     @GetMapping("/reservas-raw")
     public @ResponseBody Reserva getReservasRaw() {
         Reserva reserva = new Reserva();
@@ -45,13 +39,23 @@ public class HomeController {
     }
     @PostMapping ("/reservas")
     public String postReservas(@RequestParam("nombre")String nombre,
-                               @RequestParam("telefono") String telefono,
+                               @RequestParam("apellido") String apellido,
+                               @RequestParam("telefono") Integer telefono,
+                               @RequestParam("dia") Date dia,
+                               @RequestParam("hora") Time hora,
+                               @RequestParam("cantidad") Integer cantidad,
+                               @RequestParam("observaciones") String observaciones,
                                Model m){
         System.out.println(nombre + telefono);
         //Llamar a la base de datos
 
         m.addAttribute("m_nombre", nombre);
+        m.addAttribute("m_apellido", apellido);
         m.addAttribute("m_telefono", telefono);
+        m.addAttribute("m_dia", dia);
+        m.addAttribute("m_hora", hora);
+        m.addAttribute("m_cantidad", cantidad);
+        m.addAttribute("m_observaciones", observaciones);
         return "resultado";
     }
 }

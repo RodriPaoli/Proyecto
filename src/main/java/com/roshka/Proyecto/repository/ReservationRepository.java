@@ -1,5 +1,6 @@
 package com.roshka.Proyecto.repository;
 
+import com.roshka.Proyecto.model.Reservation;
 import com.roshka.Proyecto.repository.ReservationRepository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
