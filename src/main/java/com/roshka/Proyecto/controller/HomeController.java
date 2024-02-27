@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Date;
 import java.sql.Time;
 
@@ -28,8 +31,8 @@ public class HomeController {
     public String postReservas(@RequestParam("nombre")String nombre,
                                @RequestParam("apellido") String apellido,
                                @RequestParam("telefono") Integer telefono,
-                               @RequestParam("fecha") Date fecha,
-                               @RequestParam("horario") Time horario,
+                               @RequestParam("fecha") LocalDate fecha,
+                               @RequestParam("horario") LocalTime horario,
                                @RequestParam("cantidad") Integer cantidad,
                                @RequestParam("observaciones") String observaciones,
                                Model m){
@@ -39,8 +42,8 @@ public class HomeController {
         m.addAttribute("m_nombre", nombre);
         m.addAttribute("m_apellido", apellido);
         m.addAttribute("m_telefono", telefono);
-        m.addAttribute("m_dia", fecha);
-        m.addAttribute("m_hora", horario);
+        m.addAttribute("m_fecha", fecha);
+        m.addAttribute("m_horario", horario);
         m.addAttribute("m_cantidad", cantidad);
         m.addAttribute("m_observaciones", observaciones);
         return "resultado";

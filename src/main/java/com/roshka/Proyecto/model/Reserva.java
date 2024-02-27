@@ -8,6 +8,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.sql.Time;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Date;
 
 @Data
@@ -21,18 +23,10 @@ public class Reserva {
     public String nombre;
     public String apellido;
     public Integer telefono;
-    public Date fecha;
-    public Time horario;
+    public LocalDate fecha;
+    public LocalTime horario;
     public Integer cantidad;
     public String observaciones;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public String getNombre() {
         return nombre;
@@ -58,19 +52,19 @@ public class Reserva {
         this.telefono = telefono;
     }
 
-    public Date getFecha() {
+    public LocalDate getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date dia) {
-        this.fecha = dia;
+    public void setFecha(LocalDate fecha) {
+        this.fecha = fecha;
     }
 
-    public Time getHorario() {
+    public LocalTime getHorario() {
         return horario;
     }
 
-    public void setHorario(Time hora) {
+    public void setHorario(LocalTime hora) {
         this.horario = hora;
     }
 
