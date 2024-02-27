@@ -14,16 +14,27 @@ public class HomeController {
         public String telefono;
         public Integer saldo;
     }
+
     @GetMapping("/")
     public String home(Model model) {
         model.addAttribute("menuItem", "Rocoto relleno");
         return "home";
     }
+
     @GetMapping("/reservas")
     public String getReservas() {
 
         return "reservas";
     }
+    @GetMapping("/mapa")
+    public String mostrarMapa(Model model) {
+        double latitud = -25.282198698800023;
+        double longitud = -57.63615149084265;
+        model.addAttribute("latitud", latitud);
+        model.addAttribute("longitud", longitud);
+        return "mapa";
+    }
+
     @GetMapping("/reservas-raw")
     public @ResponseBody Reserva getReservasRaw() {
         Reserva reserva = new Reserva();
@@ -32,7 +43,6 @@ public class HomeController {
         reserva.saldo = 50000;
         return reserva;
     }
-
     @PostMapping ("/reservas")
     public String postReservas(@RequestParam("nombre")String nombre,
                                @RequestParam("telefono") String telefono,
@@ -44,5 +54,5 @@ public class HomeController {
         m.addAttribute("m_telefono", telefono);
         return "resultado";
     }
-
 }
+
