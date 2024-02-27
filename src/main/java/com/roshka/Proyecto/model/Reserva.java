@@ -17,13 +17,14 @@ import java.util.Date;
 public class Reserva {
     @Id
     @GeneratedValue
-    private Integer id;
-    private String nombre;
-    private String apellido;
-    private Integer telefono;
-    private Date dia;
-    private Time hora;
-    private Integer cantidad;
+    public Integer id;
+    public String nombre;
+    public String apellido;
+    public Integer telefono;
+    public Date fecha;
+    public Time horario;
+    public Integer cantidad;
+    public String observaciones;
 
     public Integer getId() {
         return id;
@@ -57,20 +58,20 @@ public class Reserva {
         this.telefono = telefono;
     }
 
-    public Date getDia() {
-        return dia;
+    public Date getFecha() {
+        return fecha;
     }
 
-    public void setDia(Date dia) {
-        this.dia = dia;
+    public void setFecha(Date dia) {
+        this.fecha = dia;
     }
 
-    public Time getHora() {
-        return hora;
+    public Time getHorario() {
+        return horario;
     }
 
-    public void setHora(Time hora) {
-        this.hora = hora;
+    public void setHorario(Time hora) {
+        this.horario = hora;
     }
 
     public Integer getCantidad() {
@@ -79,5 +80,13 @@ public class Reserva {
 
     public void setCantidad(Integer cantidad) {
         this.cantidad = cantidad;
+    }
+
+    public String getObservaciones() {
+        return observaciones;
+    }
+
+    public void setObservaciones(String observaciones) {
+        this.observaciones = observaciones;
     }
 }
