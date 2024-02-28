@@ -19,15 +19,23 @@ import java.util.Date;
 public class Reserva {
     @Id
     @GeneratedValue
-    public Integer id;
+    public Long id;
     public String nombre;
     public String apellido;
     public Integer telefono;
-    public LocalDate fecha;
-    public LocalTime horario;
+    public LocalDate fechaE;
+    public LocalDate fechaS;
     public Integer cantidad;
     public String observaciones;
+    public Boolean presupuesto;
 
+
+    public Long getId() {
+        return id;
+    }
+    public void setId(Long id){
+        this.id = id;
+    }
     public String getNombre() {
         return nombre;
     }
@@ -52,20 +60,20 @@ public class Reserva {
         this.telefono = telefono;
     }
 
-    public LocalDate getFecha() {
-        return fecha;
+    public LocalDate getFechaE() {
+        return fechaE;
     }
 
-    public void setFecha(LocalDate fecha) {
-        this.fecha = fecha;
+    public void setFechaE(LocalDate fechaE) {
+        this.fechaE = fechaE;
     }
 
-    public LocalTime getHorario() {
-        return horario;
+    public LocalDate getFechaS() {
+        return fechaS;
     }
 
-    public void setHorario(LocalTime hora) {
-        this.horario = hora;
+    public void setFechaS(LocalDate fechaS) {
+        this.fechaS = fechaS;
     }
 
     public Integer getCantidad() {
@@ -82,5 +90,13 @@ public class Reserva {
 
     public void setObservaciones(String observaciones) {
         this.observaciones = observaciones;
+    }
+
+    public Boolean getPresupuesto() {
+        return presupuesto;
+    }
+
+    public void setPresupuesto(Boolean presupuesto) {
+        this.presupuesto = presupuesto;
     }
 }

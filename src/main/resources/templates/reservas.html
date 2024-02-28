@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Reservas</title>
@@ -8,9 +8,6 @@
         body {
             font-family: Arial, sans-serif;
             background-color: #f2f2f2;
-            height: 100%;
-            margin: 0;
-            padding: 0;
         }
         .header {
             position: static;
@@ -21,95 +18,100 @@
             text-align: center;
         }
         .navbar {
-            background-color: #333;
+            background-color: rgb(243, 158, 217);
         }
-        .navbar-brand, .navbar-nav .nav-link {
-            color: #fff;
+        .navbar-brand, .navbar-nav .nav-link .nav-item {
+            color: rgb(0, 0, 0);
         }
         .section {
-            padding: 20px;
-        }
-        .form {
             padding: 40px;
-            margin.inline: auto;
+        }
+        .btn-primary {
+            background-color: rgb(243, 158, 217);
+            color: #000;
+            border: 1px rgb(243, 158, 217);
+            margin-bottom: 20px;
         }
         footer {
-            background-color: #333;
-            color: #fff;
+            background-color: rgb(243, 158, 217);
+            color: rgb(0, 0, 0);
             padding: 10px 0;
             text-align: center;
-        }
-        map {
-            height: 100%;
         }
     </style>
 </head>
 <body>
 <header class="header">
-    <img th:src="@{/images/top.jpg}"/>
+    <img th:src="@{/images/La Casita de Cerrito.jpg}" height="500" width="1000"/>
 </header>
-<nav class="navbar navbar-expand-lg navbar-dark">
-<div class="container">
-    <a class="navbar-brand" href="/">Inicio</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="/reservas">Reservas</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#contacto">Locales</a>
-            </li>
-        </ul>
+<nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
+        <a class="navbar-brand" href="/">Inicio</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/reservas">Reservas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/contacto">Contacto</a>
+                </li>
+            </ul>
+        </div>
     </div>
-</div>
 </nav>
-<form class="form" method="post" action="/resultado">
-    <div class="container" >
+
+<form class="form" method="post" action="/resultado" th:object="${reserva}">
+    <div class="container">
         <h1>Formulario de Reserva</h1>
-        <form>
-            <div class="form-group">
-                <label for="nombre">Nombre</label>
-                <input type="text" class="form-control" id="nombre" placeholder="Ingrese su nombre">
-            </div>
-            <div class="form-group">
-                <label for="apellido">Apellido</label>
-                <input type="text" class="form-control" id="apellido" placeholder="Ingrese su apellido">
-            </div>
-            <div class="form-group">
-                <label for="telefono">Teléfono</label>
-                <input type="tel" class="form-control" id="telefono" placeholder="Ingrese su teléfono">
-            </div>
-            <div class="form-group">
-                <label for="fecha">Fecha de la Reserva</label>
-                <input type="date" class="form-control" id="fecha">
-            </div>
-            <div class="form-group">
-                <label for="horario">Horario de la Reserva</label>
-                <input type="time" class="form-control" id="horario">
-            </div>
-            <div class="form-group">
-                <label for="cantidad">Cantidad de Personas</label>
-                <input type="number" class="form-control" id="cantidad" placeholder="Ingrese la cantidad de personas">
-            </div>
-            <div class="form-group">
-                <label for="observaciones">Observaciones</label>
-                <textarea class="form-control" id="observaciones" rows="3" placeholder="Ingresa informacion que considera importante como alergias o intolerancias"></textarea>
-            </div>
-            <div class="form" id="map">
-                <h2>Ubicación del Restaurante</h2>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7215.271033770075!2d-57.6318446!3d-25.2828437!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x945da7f3b9ce82eb%3A0x3ac25955658986a0!2sBolsi!5e0!3m2!1ses-419!2spy!4v1708987317483!5m2!1ses-419!2spy" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-    <button type="submit" class="btn btn-primary">Enviar</button>
-        </form>
+        <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" class="form-control" id="nombre" th:field="*{nombre}" name="nombre" placeholder="Ingrese su nombre">
+        </div>
+        <div class="form-group">
+            <label for="apellido">Apellido</label>
+            <input type="text" class="form-control" id="apellido" th:field="*{apellido}" name="apellido" placeholder="Ingrese su apellido">
+        </div>
+        <div class="form-group">
+            <label for="telefono">Teléfono</label>
+            <input type="text" class="form-control" id="telefono" th:field="*{telefono}" name="telefono" placeholder="Ingrese su teléfono">
+        </div>
+        <div class="form-group">
+            <label for="fechaE">Fecha de Entrada</label>
+            <input type="date" class="form-control" th:field="*{fechaE}" id="fechaE" name="fechaE">
+        </div>
+        <div class="form-group">
+            <label for="fechaS">Fecha de Salida</label>
+            <input type="date" class="form-control" th:field="*{fechaS}" id="fechaS" name="fechaS">
+        </div>
+        <div class="form-group">
+            <label for="cantidad">Cantidad de Personas</label>
+            <input type="number" class="form-control" th:field="*{cantidad}" id="cantidad" name="cantidad" placeholder="Ingrese la cantidad de personas">
+        </div>
+        <div class="form-group">
+            <label for="observaciones">Observaciones</label>
+            <textarea typeof="text" class="form-control" id="observaciones" th:field="*{observaciones}"  name="observaciones" rows="3" placeholder="Ingresa información que considera importante como alergias o intolerancias"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="imagen">Cedula de Identidad o Pasaporte (solo el frente)</label>
+            <input type="file" name="imagen" id="imagen" >
+        </div>
+        <div class="form-group">
+            <label for="presupuesto">Quiere que le mandemos un presupuesto?</label>
+            <input type="checkbox" name="presupuesto" id="presupuesto" th:field="*{presupuesto}">
+        </div>
+        <div id="map">
+            <h2>Ubicación de la Casita</h2>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6887.303354944196!2d-57.647872902011315!3d-27.34180395909369!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x945a7df64f137ee9%3A0x8b2993bc9f98f685!2sLa%20casita%20de%20Cerrito!5e0!3m2!1ses-419!2spy!4v1709140728677!5m2!1ses-419!2spy" width="1000" height="800" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+        <button type="submit" class="btn btn-primary">Enviar</button>
     </div>
 </form>
 
 <footer>
     <div class="container">
-        <p>&copy; 2024 Prenotare. Todos los derechos reservados.</p>
+        <p>&copy; 2024 La Casita de Cerrito. Todos los derechos reservados.</p>
     </div>
 </footer>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

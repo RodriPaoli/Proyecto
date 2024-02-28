@@ -1,16 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Error</title>
+    <title>Reservas</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f2f2f2;
-            height: 100%;
-            margin: 0;
-            padding: 0;
         }
         .header {
             position: static;
@@ -20,35 +17,37 @@
             height: 100%;
             text-align: center;
         }
-        .navbar {
-            background-color: #333;
+        .container {
+            margin-inline: auto;
         }
-        .navbar-brand, .navbar-nav .nav-link {
-            color: #fff;
+        .navbar {
+            background-color: rgb(243, 158, 217);
+        }
+        .navbar-brand, .navbar-nav .nav-link .nav-item {
+            color: rgb(0, 0, 0);
         }
         .section {
-            padding: 20px;
-        }
-        .form {
             padding: 40px;
-            margin.inline: auto;
+        }
+        .btn-primary {
+            background-color: rgb(243, 158, 217);
+            color: #000;
+            border: 1px rgb(243, 158, 217);
+            margin-bottom: 20px;
         }
         footer {
-            background-color: #333;
-            color: #fff;
+            background-color: rgb(243, 158, 217);
+            color: rgb(0, 0, 0);
             padding: 10px 0;
             text-align: center;
-        }
-        map {
-            height: 100%;
         }
     </style>
 </head>
 <body>
 <header class="header">
-    <img th:src="@{/images/top.jpg}"/>
+    <img th:src="@{/images/La Casita de Cerrito.jpg}" height="500" width="1000"/>
 </header>
-<nav class="navbar navbar-expand-lg navbar-dark">
+<nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
         <a class="navbar-brand" href="/">Inicio</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -60,12 +59,24 @@
                     <a class="nav-link" href="/reservas">Reservas</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#contacto">Locales</a>
+                    <a class="nav-link" href="/contacto">Contacto</a>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
-<div class="map"><img th:src="@{/images/error.jpg}"/>
+
+<h2>Contactanos!</h2>
+<p>Si tenes dudas o queres más información sobre todo lo que incluye esta gran experiencia. Escanea la imagen y escribinos</p>
+<img th:src="@{/images/WA Cerrito.jpg}" height="800" width="800">
+
+<footer>
+    <div class="container">
+        <p>&copy; 2024 La Casita de Cerrito. Todos los derechos reservados.</p>
+    </div>
+</footer>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

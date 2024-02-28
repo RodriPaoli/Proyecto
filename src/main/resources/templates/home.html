@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prenotare</title>
+    <title>Casita de Cerrito</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
+            background-color: rgb(255, 255, 255);
         }
         .header {
             position: static;
@@ -19,17 +19,24 @@
             text-align: center;
         }
         .navbar {
-            background-color: #333;
+            background-color: rgb(243, 158, 217);
         }
         .navbar-brand, .navbar-nav .nav-link {
-            color: #fff;
+            color: #000;
         }
         .section {
             padding: 40px;
         }
+        .btn-primary {
+            background-color: rgb(243, 158, 217);
+            color: #000;
+            border: 1px rgb(243, 158, 217);
+            margin-bottom: 20px;
+            margin-top: 20px;
+        }
         footer {
-            background-color: #333;
-            color: #fff;
+            background-color: rgb(243, 158, 217);
+            color: rgb(0, 0, 0);
             padding: 10px 0;
             text-align: center;
         }
@@ -37,9 +44,9 @@
 </head>
 <body>
     <header class="header">
-        <img th:src="@{/images/top.jpg}"/>
+        <img th:src="@{/images/La Casita de Cerrito.jpg}" height="500" width="1000"/>
     </header>
-<nav class="navbar navbar-expand-lg navbar-dark">
+<nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
         <a class="navbar-brand" href="#">Inicio</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -51,7 +58,7 @@
                     <a class="nav-link" href="/reservas">Reservas</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#contacto">Contacto</a>
+                    <a class="nav-link" href="/contacto">Contacto</a>
                 </li>
             </ul>
         </div>
@@ -59,29 +66,30 @@
 </nav>
 <section id="inicio" class="section">
     <div class="container">
-        <h2>¡Bienvenido a Prenotare!</h2>
-        <p>En Prenotare, te ofrecemos una experiencia única para descubrir y reservar los mejores restaurantes en tu área. Ya sea que estés buscando una cena romántica, una comida rápida entre amigos o una experiencia gastronómica única, ¡nosotros te tenemos cubierto!
-Nuestro fácil sistema de reservas te permite explorar una amplia variedad de restaurantes y asegurar tu mesa en cuestión de segundos. ¿Tienes alguna preferencia dietética o necesidades especiales? No te preocupes, ¡tenemos opciones para todos los gustos y requisitos!
-Con Prenotare, planificar tu próxima salida a comer nunca ha sido tan fácil y conveniente. ¿Qué estás esperando? ¡Empieza a explorar y reserva tu mesa hoy mismo!</p>
+        <h2>¡Bienvenido a La Casita de Cerrito!</h2>
+        <p> Sumérgete en la serenidad de la naturaleza y escapa del bullicio de la ciudad en nuestro encantador refugio rural. Situado en el corazón de Cerrito rodeado de majestuosas montañas y exuberantes bosques, nuestro alojamiento ofrece una experiencia única para aquellos que buscan paz y tranquilidad.
+            Nuestras acogedoras habitaciones están diseñadas para brindarte comodidad y relajación durante tu estancia. Disfruta de las vistas panorámicas desde tu propia terraza privada o aventúrate a explorar los senderos naturales que se encuentran justo fuera de tu puerta.
+            En "La Casita", la conexión con la naturaleza es primordial. Despiértate con el canto de los pájaros y respira el aire fresco de la montaña mientras disfrutas de un delicioso desayuno casero con ingredientes locales frescos.
+            Ya sea que busques un retiro romántico para dos, unas vacaciones familiares llenas de aventuras al aire libre o simplemente un lugar para desconectar y recargar energías, nuestro refugio rural ofrece todo lo que necesitas para una escapada inolvidable.
+            ¡Ven y descubre la magia de "La Casita" hoy mismo!</p>
     </div>
 </section>
-<section id="reservas" class="section">
+<section id="reservas" class="section bg-light">
     <div class="container">
         <h2>Reservas</h2>
-        <p>Para hacer una reserva y empezar este viaje gastronomico haz click aqui.</p>
-        <spa>Saludos jeje</spa>
+        <p>Para hacer una reserva y escapar de la rutina haz click aqui.</p>
+        <a href="/reservas" ><button class="btn btn-primary">Reservar</button></a>
     </div>
 </section>
 <section id="contacto" class="section bg-light">
     <div class="container">
         <h2>Contacto</h2>
-        <p>Puedes contactarnos al (021) 123-456 o enviarnos un correo electrónico a contacto@prenotare.com.py.</p>
-        <p>Si quieres que agreguemos tu restaurante a nuestra lista de locales, llamanos al (021) 654-321 o envianos un correo electrónico al restaurantes@prenotare.com.py</p>
+        <p>Puedes contactarnos al (0972) 123-456 o enviarnos un correo electrónico a contacto@casitadecerrito.com.</p>
     </div>
 </section>
 <footer>
     <div class="container">
-        <p>&copy; 2024 Prenotare. Todos los derechos reservados.</p>
+        <p>&copy; 2024 La Casita de Cerrito. Todos los derechos reservados.</p>
     </div>
 </footer>
 
