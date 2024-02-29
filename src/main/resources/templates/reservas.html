@@ -23,6 +23,9 @@
         .navbar-brand, .navbar-nav .nav-link .nav-item {
             color: rgb(0, 0, 0);
         }
+        .form{
+            padding: 30px;
+        }
         .section {
             padding: 40px;
         }
@@ -47,7 +50,8 @@
 <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
         <a class="navbar-brand" href="/">Inicio</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
@@ -66,48 +70,77 @@
 <form class="form" method="post" action="/resultado" th:object="${reserva}">
     <div class="container">
         <h1>Formulario de Reserva</h1>
-        <div class="form-group">
-            <label for="nombre">Nombre</label>
-            <input type="text" class="form-control" id="nombre" th:field="*{nombre}" name="nombre" placeholder="Ingrese su nombre">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" class="form-control" id="nombre" th:field="*{nombre}" name="nombre" placeholder="Ingrese su nombre">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="apellido">Apellido</label>
+                    <input type="text" class="form-control" id="apellido" th:field="*{apellido}" name="apellido" placeholder="Ingrese su apellido">
+                </div>
+            </div>
         </div>
-        <div class="form-group">
-            <label for="apellido">Apellido</label>
-            <input type="text" class="form-control" id="apellido" th:field="*{apellido}" name="apellido" placeholder="Ingrese su apellido">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="telefono">Teléfono</label>
+                    <input type="text" class="form-control" id="telefono" th:field="*{telefono}" name="telefono" placeholder="Ingrese su teléfono">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="fechaE">Fecha de Entrada</label>
+                    <input type="date" class="form-control" th:field="*{fechaE}" id="fechaE" name="fechaE">
+                </div>
+            </div>
         </div>
-        <div class="form-group">
-            <label for="telefono">Teléfono</label>
-            <input type="text" class="form-control" id="telefono" th:field="*{telefono}" name="telefono" placeholder="Ingrese su teléfono">
-        </div>
-        <div class="form-group">
-            <label for="fechaE">Fecha de Entrada</label>
-            <input type="date" class="form-control" th:field="*{fechaE}" id="fechaE" name="fechaE">
-        </div>
-        <div class="form-group">
-            <label for="fechaS">Fecha de Salida</label>
-            <input type="date" class="form-control" th:field="*{fechaS}" id="fechaS" name="fechaS">
-        </div>
-        <div class="form-group">
-            <label for="cantidad">Cantidad de Personas</label>
-            <input type="number" class="form-control" th:field="*{cantidad}" id="cantidad" name="cantidad" placeholder="Ingrese la cantidad de personas">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="cantidad">Cantidad de Personas</label>
+                    <input type="number" class="form-control" th:field="*{cantidad}" id="cantidad" name="cantidad" placeholder="Ingrese la cantidad de personas">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="fechaS">Fecha de Salida</label>
+                    <input type="date" class="form-control" th:field="*{fechaS}" id="fechaS" name="fechaS">
+                </div>
+            </div>
         </div>
         <div class="form-group">
             <label for="observaciones">Observaciones</label>
-            <textarea typeof="text" class="form-control" id="observaciones" th:field="*{observaciones}"  name="observaciones" rows="3" placeholder="Ingresa información que considera importante como alergias o intolerancias"></textarea>
-        </div>
-        <div class="form-group">
-            <label for="imagen">Cedula de Identidad o Pasaporte (solo el frente)</label>
-            <input type="file" name="imagen" id="imagen" >
+            <textarea typeof="text" class="form-control" id="observaciones" th:field="*{observaciones}" name="observaciones" rows="3" placeholder="Ingresa información que considera importante como alergias o intolerancias"></textarea>
         </div>
         <div class="form-group">
             <label for="presupuesto">Quiere que le mandemos un presupuesto?</label>
             <input type="checkbox" name="presupuesto" id="presupuesto" th:field="*{presupuesto}">
         </div>
-        <div id="map">
-            <h2>Ubicación de la Casita</h2>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6887.303354944196!2d-57.647872902011315!3d-27.34180395909369!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x945a7df64f137ee9%3A0x8b2993bc9f98f685!2sLa%20casita%20de%20Cerrito!5e0!3m2!1ses-419!2spy!4v1709140728677!5m2!1ses-419!2spy" width="1000" height="800" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+        <div class="form-group">
+            <h5>Cedula de Identidad o Pasaporte</h5>
+            <p th:text="${message}" th:if="${message ne null}" class="alert alert-primary"></p>
+            <form method="post" th:action="@{/upload}" enctype="multipart/form-data">
+                <div class="form-group">
+                    <input type="file" name="image" accept="image/*" class="form-control-file">
+                </div>
+                <button type="submit" class="btn btn-primary">Subir imagen</button>
+            </form>
+            <span th:if="${msg != null}" th:text="${msg}"></span>
+        </div>
+
         <button type="submit" class="btn btn-primary">Enviar</button>
     </div>
 </form>
+<div class="row justify-content-center">
+    <div class="col-md-7">
+        <h2>Ubicacion de la Casita</h2>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6887.303354944196!2d-57.647872902011315!3d-27.34180395909369!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x945a7df64f137ee9%3A0x8b2993bc9f98f685!2sLa%20casita%20de%20Cerrito!5e0!3m2!1ses-419!2spy!4v1709207825665!5m2!1ses-419!2spy" width="1000" height="800" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+</div>
 
 <footer>
     <div class="container">
